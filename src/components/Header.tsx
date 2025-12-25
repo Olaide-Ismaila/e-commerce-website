@@ -3,11 +3,11 @@ import logo from '../images/divine-logo.jpg';
 
 function Header() {
   return (
-    <div className='lg:flex justify-between bg-green-700 text-white py-2 px-4 sm:block sm:m-auto sm:align-middle'>
+    <div className='fixed w-full lg:flex justify-between bg-green-700 text-white py-2 px-4 sm:block sm:m-auto sm:align-middle'>
       <div className='flex justify-center p-2 lg:w-[22%] font-semibold sm:w-full'>
         <img src={logo} alt="Logo" className='w-10 h-10 mr-4' />
         <h1 className="text-2xl">
-         DivineProwessMusic 
+         DivineProwessStore 
         </h1>
       </div>
       <div className='flex justify-center lg:w-[60%] sm:w-full'>
