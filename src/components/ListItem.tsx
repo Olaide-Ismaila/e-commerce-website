@@ -20,7 +20,7 @@ const ListItem: React.FC = () => {
   const [products, setProducts] = useState<ProductsProps[]>(product);
   return (
     <div >
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center pt-20">
         {products.map((product: ProductsProps) =>(
           <div key={product.id} className="w-56 m-5 pr-10 border-r border-gray-300">
             <img src={product.image} alt={product.name} className="w-full h-56 mb-8" />
