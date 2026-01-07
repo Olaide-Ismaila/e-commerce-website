@@ -1,16 +1,17 @@
+
 import Header from "../components/Header";
 import ListItem from "../components/ListItem";
 
-const HomePage: React.FC = () => {
-
+const HomePage= ({addToCart}) => {
+  
   return (
     <div>
       <Header />
       <div>
-        <ListItem />
+        <ListItem addToCart={addToCart} />
       </div>
       </div>
   )
 }
 
-export default HomePage
+export default HomePage;
