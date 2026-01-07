@@ -1,7 +1,7 @@
 
 import { products } from "../data/Products";
 
-const ListItem = ({addToCart}) => {
+const ListItem = ({addToCart, setQuantity}) => {
   
   return (
     <div >
@@ -15,7 +15,7 @@ const ListItem = ({addToCart}) => {
       <span className="text-gray-700">{product.rating.count}</span>
       </div>
       <p className="font-bold">${product.priceCents}</p>
-      <select name="quantity" id="quantity" className="border-gray-300 border px-2 py-1 rounded-sm mt-2">
+      <select onChange={(e)=>setQuantity(Number(e.target.value))} name="quantity" id="quantity" className="border-gray-300 border px-2 py-1 rounded-sm mt-2">
         <option value="quantity">Quantity</option>
         <option value="1">1</option>
         <option value="2">2</option>

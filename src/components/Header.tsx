@@ -2,7 +2,7 @@ import { FaArrowRight, FaCartPlus } from 'react-icons/fa';
 import logo from '../images/divine-logo.jpg';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({totalQty}) {
 
   return (
     <div className='fixed w-full lg:flex justify-between bg-green-700 text-white py-2 px-4 sm:block sm:m-auto sm:align-middle'>
@@ -20,6 +20,7 @@ function Header() {
         <Link to = '/order'><span className='mr-10 text-2xl'>Orders</span></Link>
         <Link to='/checkout' className='flex justify-center'>
           <FaCartPlus className='text-4xl mr-2' />
+          <span className='font-bold text-2xl mr-2'>{totalQty}</span>
           <span className='text-2xl'>Cart</span>
         </Link>
       </div>

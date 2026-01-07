@@ -1,7 +1,7 @@
-import { CartItemProps } from "../data/TypesProps";
 
 
-const Cart = ({item}: CartItemProps) => {
+
+const Cart = ({item}) => {
 
   return (
     <div className="lg:w-full border rounded-sm p-8 sm:w-full mb-4">
