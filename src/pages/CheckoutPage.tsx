@@ -1,12 +1,15 @@
+
 import Checkout from "../components/Checkout"
 import CheckoutHeader from "../components/CheckoutHeader"
-import { CartItemProps } from "../data/TypesProps"
 
-const CheckoutPage = ({cart, totalQty}) => {
+
+
+const CheckoutPage = ({cart, totalQty, setCart}) => {
+
   return (
     <div>
       <CheckoutHeader totalQty={totalQty} />
-      <Checkout cart={cart} />
+      <Checkout cart={cart} totalQty={totalQty} setCart={setCart} />
     </div>
   )
 }

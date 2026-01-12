@@ -7,4 +7,5 @@ export type ProductProps = {
 
 export type CartItemProps = ProductProps & {
   quantity: number;
+  delivery: string;
 }

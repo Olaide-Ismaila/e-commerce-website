@@ -1,5 +1,6 @@
 
 import { products } from "../data/Products";
+import { formatMoney } from "../utils/FormatMoney";
 
 const ListItem = ({addToCart, setQuantity}) => {
   
@@ -14,7 +15,7 @@ const ListItem = ({addToCart, setQuantity}) => {
       <img src={`src/images/ratings/${product.rating.stars}.png`} alt="Rating" className="w-30 mr-3" />
       <span className="text-gray-700">{product.rating.count}</span>
       </div>
-      <p className="font-bold">${product.priceCents}</p>
+      <p className="font-bold">${formatMoney(product.priceCents)}</p>
       <select onChange={(e)=>setQuantity(Number(e.target.value))} name="quantity" id="quantity" className="border-gray-300 border px-2 py-1 rounded-sm mt-2">
         <option value="quantity">Quantity</option>
         <option value="1">1</option>

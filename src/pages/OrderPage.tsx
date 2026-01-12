@@ -2,11 +2,11 @@ import Header from "../components/Header";
 import Order from "../components/Order";
 
 
-const OrderPage = () => {
+const OrderPage = ({cart, totalQty}) => {
   return (
     <div>
-      <Header />
-      <Order />
+      <Header totalQty={totalQty} />
+      <Order cart={cart} />
     </div>
   )
 }

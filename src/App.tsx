@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {SetStateAction, useState} from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -7,17 +7,18 @@ import TrackingPage from "./pages/TrackingPage";
 import { CartItemProps, ProductProps } from './data/TypesProps';
 
 function App() {
-   const [cart, setCart] = useState<CartItemProps[]>([]);  
+   const [cart, setCart] = useState<SetStateAction<CartItemProps[]>>([]);  
    const [quantity, setQuantity] = useState<number>(0);
-    const [totalQty, setTotalQty] = useState<number>(0);
+   const [totalQty, setTotalQty] = useState<number>(0);
+   
   
     const addToCart = (product: ProductProps)=> {
       setTotalQty(prevQty => prevQty + quantity);
       setCart((prevCart) => {
-        const newItem = prevCart.find(item => item.id === product.id);
+        const newItem: CartItemProps[] = prevCart.find((item: CartItemProps) => item.id === product.id);
   
         if (newItem) {
-          return prevCart.map(item => item.id === product.id ? {...item, quantity: item.quantity + quantity} : item);
+          return prevCart.map((item: CartItemProps) => item.id === product.id ? {...item, quantity: item.quantity + quantity} : item);
         }
          
         return [...prevCart, {...product, quantity: quantity}];
@@ -29,9 +30,9 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage addToCart={addToCart} setQuantity={setQuantity} totalQty={totalQty} />} />
-      <Route path="/checkout" element={<CheckoutPage cart={cart} totalQty={totalQty} />} />
-      <Route path="/order" element={<OrderPage />}  />
-      <Route path="/tracking" element={<TrackingPage />} />
+      <Route path="/checkout" element={<CheckoutPage cart={cart} totalQty={totalQty} setCart={setCart} />} />
+      <Route path="/order" element={<OrderPage cart={cart} totalQty={totalQty} />}  />
+      <Route path="/tracking" element={<TrackingPage totalQty={totalQty} />} />
     </Routes>
   </BrowserRouter>
   );
